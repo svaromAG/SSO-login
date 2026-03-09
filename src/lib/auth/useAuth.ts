@@ -24,7 +24,7 @@ export const useAuth = () => {
       throw new Error('Client is not available')
     }
 
-    const scope = params?.scope || 'openid'
+    const scope = params?.scope || 'offline_access openid profile'
     let redirectUri = params?.redirectUri
     if (!redirectUri && Array.isArray(client.redirect_uris) && client.redirect_uris.length > 1) {
       redirectUri = client.redirect_uris[0]?.toString()
